@@ -5,10 +5,9 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brainworks.UC.Data", "Brainworks.UC.Data\Brainworks.UC.Data.csproj", "{327B2906-8E14-4330-851F-3042148D897B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{8AD57DE1-B1F0-4B10-B53B-E737FE20AB59}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7430EECA-8E98-46F3-897C-6D9D2442E52F}"
 	ProjectSection(SolutionItems) = preProject
+		.gitiattributes = .gitiattributes
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject

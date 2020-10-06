@@ -13,10 +13,10 @@ namespace Brainworks.UC.Data
         public string Landmark { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public string Pin { get; set; }
+        public string Pin { get; set; } 
         public string Mobile { get; set; }
         public string Email { get; set; }
-        public string Service { get; set; }
+        public string Status { get; set; }
 
     }
 }

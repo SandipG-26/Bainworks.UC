@@ -40,7 +40,15 @@ namespace Brainworks.UC.Data
             modelBuilder.Entity<Area>().Property(b => b.State).HasColumnType("varchar(50)");
             modelBuilder.Entity<Area>().Property(b => b.Subarea).HasColumnType("varchar(50)");
 
-
+            modelBuilder.Entity<Vendor>().Property(b => b.FirstName).HasColumnType("varchar(20)").IsRequired();
+            modelBuilder.Entity<Vendor>().Property(b => b.ShopName).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<Vendor>().Property(b => b.Address).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<Vendor>().Property(b => b.Landmark).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<Vendor>().Property(b => b.City).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<Vendor>().Property(b => b.State).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<Vendor>().Property(b => b.Pin).HasColumnType("varchar(6)").IsRequired();
+            modelBuilder.Entity<Vendor>().Property(b => b.Mobile).HasColumnType("varchar(12)").IsRequired();
+            modelBuilder.Entity<Vendor>().Property(b => b.Email).HasColumnType("varchar(25)").IsRequired();
 
         }
     }

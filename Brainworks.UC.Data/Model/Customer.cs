@@ -18,7 +18,9 @@ namespace Brainworks.UC.Data
         public string Email { get; set; }
         public int ServiceId { get; set; }
         public Service service { get; set; }
-
+        public int AreaId { get; set; }
+        public Area area { get; set; }
+        public List<Vendor> vendors { get; set; }
     }
 }
  

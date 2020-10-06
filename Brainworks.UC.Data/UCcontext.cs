@@ -9,6 +9,8 @@ namespace Brainworks.UC.Data
     {
         public DbSet<Customer> customers { get; set; }
         public DbSet<Service> service { get; set; }
+        public DbSet<Vendor> vendor { get; set; }
+        public DbSet<Area> area{ get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,6 +34,13 @@ namespace Brainworks.UC.Data
             modelBuilder.Entity<Service>().Property(b => b.ServiceSubType).HasColumnType("varchar(100)").IsRequired();
             modelBuilder.Entity<Service>().Property(b => b.ServicePolicy).HasColumnType("varchar(50)");
             modelBuilder.Entity<Service>().Property(b => b.warranty).HasColumnType("varchar(10)");
+
+            modelBuilder.Entity<Area>().Property(b => b.Pin).HasColumnType("varchar(6)").IsRequired();
+            modelBuilder.Entity<Area>().Property(b => b.City).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<Area>().Property(b => b.State).HasColumnType("varchar(50)");
+            modelBuilder.Entity<Area>().Property(b => b.Subarea).HasColumnType("varchar(50)");
+
+
 
         }
     }

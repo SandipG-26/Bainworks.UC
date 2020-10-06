@@ -12,6 +12,7 @@ namespace Brainworks.UC.Data
         public string ServicePolicy { get; set; }
         public string warranty { get; set; }
         public List<Customer> customers { get; set; }
+        public List<Vendor> vendors { get; set; }
 
     }
 } 

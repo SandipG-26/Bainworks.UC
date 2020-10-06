@@ -3,14 +3,16 @@ using Brainworks.UC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Brainworks.UC.Data.Migrations
 {
     [DbContext(typeof(UCcontext))]
-    partial class UCcontextModelSnapshot : ModelSnapshot
+    [Migration("20201006104515_cust and service createe")]
+    partial class custandservicecreatee
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,8 +68,6 @@ namespace Brainworks.UC.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ServiceId");
-
                     b.ToTable("customers");
                 });
 
@@ -95,15 +95,6 @@ namespace Brainworks.UC.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("service");
-                });
-
-            modelBuilder.Entity("Brainworks.UC.Data.Customer", b =>
-                {
-                    b.HasOne("Brainworks.UC.Data.Service", "service")
-                        .WithMany("customers")
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

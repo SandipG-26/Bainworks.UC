@@ -16,7 +16,8 @@ namespace Brainworks.UC.Data
         public string Pin { get; set; } 
         public string Mobile { get; set; }
         public string Email { get; set; }
-        public string Status { get; set; }
+        public int ServiceId { get; set; }
+        public Service service { get; set; }
 
     }
 }

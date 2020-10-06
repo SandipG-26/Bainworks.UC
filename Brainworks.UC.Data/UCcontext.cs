@@ -8,7 +8,7 @@ namespace Brainworks.UC.Data
     public class UCcontext:DbContext
     {
         public DbSet<Customer> customers { get; set; }
-        public DbSet<Service> services { get; set; }
+        public DbSet<Service> service { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -27,8 +27,7 @@ namespace Brainworks.UC.Data
             modelBuilder.Entity<Customer>().Property(b => b.Pin).HasColumnType("varchar(6)").IsRequired();
             modelBuilder.Entity<Customer>().Property(b => b.Mobile).HasColumnType("varchar(12)").IsRequired();
             modelBuilder.Entity<Customer>().Property(b => b.Email).HasColumnType("varchar(200)").IsRequired();
-            modelBuilder.Entity<Customer>().Property(b => b.Service).HasColumnType("varchar(100)").IsRequired();
-
+           
             modelBuilder.Entity<Service>().Property(b => b.ServiceType).HasColumnType("varchar(100)").IsRequired();
             modelBuilder.Entity<Service>().Property(b => b.ServiceSubType).HasColumnType("varchar(100)").IsRequired();
             modelBuilder.Entity<Service>().Property(b => b.ServicePolicy).HasColumnType("varchar(50)");

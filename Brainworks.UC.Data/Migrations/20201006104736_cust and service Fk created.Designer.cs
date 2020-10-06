@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Brainworks.UC.Data.Migrations
 {
     [DbContext(typeof(UCcontext))]
-    [Migration("20201006090354_initial migrations")]
-    partial class initialmigrations
+    [Migration("20201006104736_cust and service Fk created")]
+    partial class custandserviceFkcreated
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -59,9 +59,8 @@ namespace Brainworks.UC.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(6)");
 
-                    b.Property<string>("Service")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
+                    b.Property<int>("ServiceId")
+                        .HasColumnType("int");
 
                     b.Property<string>("State")
                         .IsRequired()
@@ -69,7 +68,44 @@ namespace Brainworks.UC.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("customer");
+                    b.HasIndex("ServiceId");
+
+                    b.ToTable("customers");
+                });
+
+            modelBuilder.Entity("Brainworks.UC.Data.Service", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ServicePolicy")
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("ServiceSubType")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("ServiceType")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("warranty")
+                        .HasColumnType("varchar(10)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("service");
+                });
+
+            modelBuilder.Entity("Brainworks.UC.Data.Customer", b =>
+                {
+                    b.HasOne("Brainworks.UC.Data.Service", "service")
+                        .WithMany("customers")
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

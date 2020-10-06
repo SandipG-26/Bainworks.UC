@@ -11,6 +11,7 @@ namespace Brainworks.UC.Data
         public string ServiceSubType { get; set; }
         public string ServicePolicy { get; set; }
         public string warranty { get; set; }
+        public List<Customer> customers { get; set; }
 
     }
-}
+} 

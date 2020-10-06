@@ -11,6 +11,7 @@ namespace Brainworks.UC.Data
         public DbSet<Service> service { get; set; }
         public DbSet<Vendor> vendor { get; set; }
         public DbSet<Area> area{ get; set; }
+        public DbSet<FirstPage> firstPage { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -49,6 +50,10 @@ namespace Brainworks.UC.Data
             modelBuilder.Entity<Vendor>().Property(b => b.Pin).HasColumnType("varchar(6)").IsRequired();
             modelBuilder.Entity<Vendor>().Property(b => b.Mobile).HasColumnType("varchar(12)").IsRequired();
             modelBuilder.Entity<Vendor>().Property(b => b.Email).HasColumnType("varchar(25)").IsRequired();
+
+            modelBuilder.Entity<FirstPage>().Property(b => b.Reference).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<FirstPage>().Property(b => b.Key).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<FirstPage>().Property(b => b.Value).HasColumnType("varchar(500 )").IsRequired();
 
         }
     }

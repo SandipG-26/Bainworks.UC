@@ -20,7 +20,7 @@ namespace Brainworks.UC.Data
         public Service service { get; set; }
         public int AreaId { get; set; }
         public Area area { get; set; }
-        public List<Vendor> vendors { get; set; }
+        public List<Vendor> vendor { get; set; }
     }
 }
  

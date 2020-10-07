@@ -11,8 +11,8 @@ namespace Brainworks.UC.Data
         public string City { get; set; }
         public string State { get; set; }
         public string Subarea { get; set; }
-        public List<Vendor> vendors { get; set; }
-        public List<Customer> customers { get; set; }
+        public List<Vendor> vendor { get; set; }
+        public List<Customer> customer { get; set; }
 
     }
 }

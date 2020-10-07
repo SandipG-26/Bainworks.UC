@@ -12,6 +12,7 @@ namespace Brainworks.UC.Data
         public DbSet<Vendor> vendor { get; set; }
         public DbSet<Area> area{ get; set; }
         public DbSet<FirstPage> firstPage { get; set; }
+        public DbSet<About> about { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -50,10 +51,18 @@ namespace Brainworks.UC.Data
             modelBuilder.Entity<Vendor>().Property(b => b.Pin).HasColumnType("varchar(6)").IsRequired();
             modelBuilder.Entity<Vendor>().Property(b => b.Mobile).HasColumnType("varchar(12)").IsRequired();
             modelBuilder.Entity<Vendor>().Property(b => b.Email).HasColumnType("varchar(25)").IsRequired();
+            modelBuilder.Entity<Vendor>().HasOne(b => b.service).WithMany(b => b.vendor).HasForeignKey(b => b.ServiceId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Vendor>().HasOne(b => b.area).WithMany(b => b.vendor).HasForeignKey(b => b.AreaId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Vendor>().HasOne(b => b.Customer).WithMany(b => b.vendor).HasForeignKey(b => b.CustomerId).OnDelete(DeleteBehavior.NoAction);
+
 
             modelBuilder.Entity<FirstPage>().Property(b => b.Reference).HasColumnType("varchar(50)").IsRequired();
             modelBuilder.Entity<FirstPage>().Property(b => b.Key).HasColumnType("varchar(50)").IsRequired();
             modelBuilder.Entity<FirstPage>().Property(b => b.Value).HasColumnType("varchar(500 )").IsRequired();
+
+            modelBuilder.Entity<About>().Property(b => b.SatisfactoryCustomer).HasColumnType("varchar(500 )").IsRequired();
+            modelBuilder.Entity<About>().Property(b => b.Goal).HasColumnType("varchar(500 )").IsRequired();
+            modelBuilder.Entity<About>().Property(b => b.Ahievement).HasColumnType("varchar(500 )").IsRequired();
 
         }
     }

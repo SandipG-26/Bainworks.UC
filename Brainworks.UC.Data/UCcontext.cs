@@ -13,6 +13,7 @@ namespace Brainworks.UC.Data
         public DbSet<Area> area{ get; set; }
         public DbSet<FirstPage> firstPage { get; set; }
         public DbSet<About> about { get; set; }
+        public DbSet<Assign> assign { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -63,6 +64,8 @@ namespace Brainworks.UC.Data
             modelBuilder.Entity<About>().Property(b => b.SatisfactoryCustomer).HasColumnType("varchar(500 )").IsRequired();
             modelBuilder.Entity<About>().Property(b => b.Goal).HasColumnType("varchar(500 )").IsRequired();
             modelBuilder.Entity<About>().Property(b => b.Ahievement).HasColumnType("varchar(500 )").IsRequired();
+
+            modelBuilder.Entity<Assign>().Property(b => b.Ahievement).HasColumnType("varchar(500 )").IsRequired();
 
         }
     }

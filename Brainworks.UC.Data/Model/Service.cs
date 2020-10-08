@@ -13,6 +13,7 @@ namespace Brainworks.UC.Data
         public string warranty { get; set; }
         public List<Customer> customer { get; set; }
         public List<Vendor> vendor { get; set; }
+        public List<Assign> assign { get; set; }
 
     }
 } 

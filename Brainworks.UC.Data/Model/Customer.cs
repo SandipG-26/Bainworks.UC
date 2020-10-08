@@ -21,6 +21,8 @@ namespace Brainworks.UC.Data
         public int AreaId { get; set; }
         public Area area { get; set; }
         public List<Vendor> vendor { get; set; }
+        public List<Assign> assign { get; set; }
+
     }
 }
  

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Brainworks.UC.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Brainworks.UC.Data
@@ -17,6 +18,11 @@ namespace Brainworks.UC.Data
         public DbSet<NewLead> newLead { get; set; }
         public DbSet<Replacement> replcaement { get; set; }
         public DbSet<Complaint> complaint { get; set; }
+        public DbSet<ContactUs> contactus { get; set; }
+        public DbSet<Feedback> feedback { get; set; }
+        public DbSet<Billing> billing { get; set; }
+        public DbSet<Due> due { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -72,7 +78,17 @@ namespace Brainworks.UC.Data
             modelBuilder.Entity<Assign>().Property(b => b.StatusId).HasColumnType("varchar(100 )").IsRequired();
 
             modelBuilder.Entity<Assign>().Property(b => b.StatusId).HasColumnType("varchar(100 )").IsRequired();
-                      
+
+            modelBuilder.Entity<ContactUs>().Property(b => b.MobileNo).HasColumnType("varchar(12)").IsRequired();
+            modelBuilder.Entity<ContactUs>().Property(b => b.Email).HasColumnType("varchar(20)").IsRequired();
+            modelBuilder.Entity<ContactUs>().Property(b => b.Address).HasColumnType("varchar(100)").IsRequired();
+
+            modelBuilder.Entity<Feedback>().Property(b => b.Comment).HasColumnType("varchar(500)").IsRequired();
+            modelBuilder.Entity<Billing>().Property(b => b.ServiceCharge).HasColumnType("varchar(20)").IsRequired();
+            modelBuilder.Entity<Billing>().Property(b => b.MaterialCharge).HasColumnType("varchar(20)").IsRequired();
+            modelBuilder.Entity<Billing>().Property(b => b.Total).HasColumnType("varchar(20)").IsRequired();
+            modelBuilder.Entity<Billing>().Property(b => b.GST).HasColumnType("varchar(20)").IsRequired();
+
         }
     }
 }

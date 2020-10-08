@@ -14,6 +14,7 @@ namespace Brainworks.UC.Data
         public List<Customer> customer { get; set; }
         public List<Vendor> vendor { get; set; }
         public List<Assign> assign { get; set; }
+        public List<Completed> completed { get; set; }
 
     }
 } 

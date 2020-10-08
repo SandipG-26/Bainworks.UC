@@ -65,7 +65,10 @@ namespace Brainworks.UC.Data
             modelBuilder.Entity<About>().Property(b => b.Goal).HasColumnType("varchar(500 )").IsRequired();
             modelBuilder.Entity<About>().Property(b => b.Ahievement).HasColumnType("varchar(500 )").IsRequired();
 
-            modelBuilder.Entity<Assign>().Property(b => b.Ahievement).HasColumnType("varchar(500 )").IsRequired();
+            modelBuilder.Entity<Assign>().Property(b => b.City).HasColumnType("varchar(100 )").IsRequired();
+            modelBuilder.Entity<Assign>().Property(b => b.StatusId).HasColumnType("varchar(100 )").IsRequired();
+
+            modelBuilder.Entity<Assign>().Property(b => b.StatusId).HasColumnType("varchar(100 )").IsRequired();
 
         }
     }

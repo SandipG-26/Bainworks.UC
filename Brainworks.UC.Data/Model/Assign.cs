@@ -15,5 +15,9 @@ namespace Brainworks.UC.Data
         public int ServiceId { get; set; }
         public Service service { get; set; }
         public Customer customer { get; set; }
+        public List<Replacement> replacement { get; set; }
+        public List<NewLead> newlead { get; set; }
+        public List<Complaint> complaint { get; set; }
+
     }
 }

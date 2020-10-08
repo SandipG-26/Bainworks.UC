@@ -23,6 +23,7 @@ namespace Brainworks.UC.Data
         public List<Vendor> vendor { get; set; }
         public List<Assign> assign { get; set; }
         public List<Completed> completed { get; set; }
+        public List<NewLead> newLead { get; set; }
 
 
     }

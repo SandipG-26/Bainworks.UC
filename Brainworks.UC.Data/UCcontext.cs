@@ -14,6 +14,9 @@ namespace Brainworks.UC.Data
         public DbSet<FirstPage> firstPage { get; set; }
         public DbSet<About> about { get; set; }
         public DbSet<Assign> assign { get; set; }
+        public DbSet<NewLead> newLead { get; set; }
+        public DbSet<Replacement> replcaement { get; set; }
+        public DbSet<Complaint> complaint { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -69,7 +72,7 @@ namespace Brainworks.UC.Data
             modelBuilder.Entity<Assign>().Property(b => b.StatusId).HasColumnType("varchar(100 )").IsRequired();
 
             modelBuilder.Entity<Assign>().Property(b => b.StatusId).HasColumnType("varchar(100 )").IsRequired();
-
+                      
         }
     }
 }

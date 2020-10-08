@@ -8,13 +8,13 @@ namespace Brainworks.UC.Data
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }
-        public string City { get; set; }
-        public string StatusId { get; set; }
+        public int CityId { get; set; }
+        public int StatusId { get; set; }
         public int CustPinId { get; set; }
         public int ServiceId { get; set; }
         public Service service { get; set; }
         public Customer customer { get; set; }
-        public List<Assign> assign { get; set; }
+        public Assign assign { get; set; }
 
     }
 }

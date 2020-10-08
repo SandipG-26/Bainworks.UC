@@ -16,7 +16,8 @@ namespace Brainworks.UC.Data
         public DbSet<About> about { get; set; }
         public DbSet<Assign> assign { get; set; }
         public DbSet<NewLead> newLead { get; set; }
-        public DbSet<Replacement> replcaement { get; set; }
+        public DbSet<Replacement> replacement { get; set; }
+        public DbSet<Completed> completed { get; set; }
         public DbSet<Complaint> complaint { get; set; }
         public DbSet<ContactUs> contactus { get; set; }
         public DbSet<Feedback> feedback { get; set; }
@@ -47,6 +48,12 @@ namespace Brainworks.UC.Data
             modelBuilder.Entity<Service>().Property(b => b.ServicePolicy).HasColumnType("varchar(50)");
             modelBuilder.Entity<Service>().Property(b => b.warranty).HasColumnType("varchar(10)");
 
+            modelBuilder.Entity<Completed>().HasOne(b => b.service).WithMany(b => b.completed).HasForeignKey(b => b.ServiceId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Completed>().HasOne(b => b.customer).WithMany(b => b.completed).HasForeignKey(b => b.CustomerId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Completed>().HasOne(b => b.customer).WithMany(b => b.completed).HasForeignKey(b => b.CityId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Completed>().HasOne(b => b.customer).WithMany(b => b.completed).HasForeignKey(b => b.CustPinId).OnDelete(DeleteBehavior.NoAction);
+
+
             modelBuilder.Entity<Area>().Property(b => b.Pin).HasColumnType("varchar(6)").IsRequired();
             modelBuilder.Entity<Area>().Property(b => b.City).HasColumnType("varchar(50)").IsRequired();
             modelBuilder.Entity<Area>().Property(b => b.State).HasColumnType("varchar(50)");
@@ -76,8 +83,23 @@ namespace Brainworks.UC.Data
 
             modelBuilder.Entity<Assign>().Property(b => b.City).HasColumnType("varchar(100 )").IsRequired();
             modelBuilder.Entity<Assign>().Property(b => b.StatusId).HasColumnType("varchar(100 )").IsRequired();
+            modelBuilder.Entity<Assign>().HasOne(b => b.service).WithMany(b => b.assign).HasForeignKey(b => b.ServiceId).OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Assign>().Property(b => b.StatusId).HasColumnType("varchar(100 )").IsRequired();
+            modelBuilder.Entity<Due>().HasOne(b => b.billing).WithMany(b => b.due).HasForeignKey(b => b.ServiceChargeId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Due>().HasOne(b => b.billing).WithMany(b => b.due).HasForeignKey(b => b.MaterialChargeId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Due>().HasOne(b => b.billing).WithMany(b => b.due).HasForeignKey(b => b.TotalId).OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<NewLead>().HasOne(b => b.customer).WithMany(b => b.newLead).HasForeignKey(b => b.CustomerId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<NewLead>().HasOne(b => b.customer).WithMany(b => b.newLead).HasForeignKey(b => b.CityId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<NewLead>().HasOne(b => b.customer).WithMany(b => b.newLead).HasForeignKey(b => b.CustPinId).OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Replacement>().HasOne(b => b.customer).WithMany(b => b.replacement).HasForeignKey(b => b.CustomerId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Replacement>().HasOne(b => b.customer).WithMany(b => b.replacement).HasForeignKey(b => b.CityId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Replacement>().HasOne(b => b.assign).WithMany(b => b.replacement).HasForeignKey(b => b.StatusId).OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Complaint>().HasOne(b => b.assign).WithMany(b => b.complaint).HasForeignKey(b => b.CustomerId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Complaint>().HasOne(b => b.customer).WithMany(b => b.complaint).HasForeignKey(b => b.CityId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Complaint>().HasOne(b => b.assign).WithMany(b => b.complaint).HasForeignKey(b => b.StatusId).OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<ContactUs>().Property(b => b.MobileNo).HasColumnType("varchar(12)").IsRequired();
             modelBuilder.Entity<ContactUs>().Property(b => b.Email).HasColumnType("varchar(20)").IsRequired();

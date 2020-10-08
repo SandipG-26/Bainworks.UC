@@ -8,9 +8,10 @@ namespace Brainworks.UC.Data
     public class Due
     {
         public int Id { get; set; }
-        public Decimal ServiceChargeId { get; set; }
-        public decimal MaterialChargeId { get; set; }
-        public decimal TotalId { get; set; }
+        public int ServiceChargeId { get; set; }
+        public int MaterialChargeId { get; set; }
+        public int TotalId { get; set; }
+        public Billing billing { get; set; }
        
     }
 }

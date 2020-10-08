@@ -24,7 +24,9 @@ namespace Brainworks.UC.Data
         public List<Assign> assign { get; set; }
         public List<Completed> completed { get; set; }
         public List<NewLead> newLead { get; set; }
+        public List<Replacement> replacement { get; set; }
 
+        public List<Complaint> complaint { get; set; }
 
     }
 }

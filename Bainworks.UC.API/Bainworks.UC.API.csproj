@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -7,5 +7,10 @@
   <ItemGroup>
     <PackageReference Include="Orc.DependencyGraph" Version="4.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bainworks.UC.Service\Bainworks.UC.Service.csproj" />
+  </ItemGroup>
+
 
 </Project>

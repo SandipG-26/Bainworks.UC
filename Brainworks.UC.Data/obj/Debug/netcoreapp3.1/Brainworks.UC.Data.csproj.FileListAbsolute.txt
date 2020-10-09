@@ -3,10 +3,6 @@ C:\Users\Sandip\source\repos\Brainworks\Bainworks.UC\Brainworks.UC.Data\bin\Debu
 C:\Users\Sandip\source\repos\Brainworks\Bainworks.UC\Brainworks.UC.Data\obj\Debug\netcoreapp3.1\Brainworks.UC.Data.csprojAssemblyReference.cache
 C:\Users\Sandip\source\repos\Brainworks\Bainworks.UC\Brainworks.UC.Data\obj\Debug\netcoreapp3.1\Brainworks.UC.Data.AssemblyInfoInputs.cache
 C:\Users\Sandip\source\repos\Brainworks\Bainworks.UC\Brainworks.UC.Data\obj\Debug\netcoreapp3.1\Brainworks.UC.Data.AssemblyInfo.cs
-C:\Users\Sandip\source\repos\Brainworks\Bainworks.UC\Brainworks.UC.Data\bin\Debug\netcoreapp3.1\Brainworks.UC.Data.runtimeconfig.json
-C:\Users\Sandip\source\repos\Brainworks\Bainworks.UC\Brainworks.UC.Data\bin\Debug\netcoreapp3.1\Brainworks.UC.Data.runtimeconfig.dev.json
-C:\Users\Sandip\source\repos\Brainworks\Bainworks.UC\Brainworks.UC.Data\obj\Debug\netcoreapp3.1\Brainworks.UC.Data.genruntimeconfig.cache
 C:\Users\Sandip\source\repos\Brainworks\Bainworks.UC\Brainworks.UC.Data\bin\Debug\netcoreapp3.1\Brainworks.UC.Data.pdb
-C:\Users\Sandip\source\repos\Brainworks\Bainworks.UC\Brainworks.UC.Data\obj\Debug\netcoreapp3.1\Brainworks.UC.Data.csproj.CoreCompileInputs.cache
 C:\Users\Sandip\source\repos\Brainworks\Bainworks.UC\Brainworks.UC.Data\obj\Debug\netcoreapp3.1\Brainworks.UC.Data.dll
 C:\Users\Sandip\source\repos\Brainworks\Bainworks.UC\Brainworks.UC.Data\obj\Debug\netcoreapp3.1\Brainworks.UC.Data.pdb

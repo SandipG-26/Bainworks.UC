@@ -8,4 +8,9 @@
     <PackageReference Include="Orc.DependencyGraph" Version="4.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bainworks.UC.Persistance\Bainworks.UC.Persistance.csproj" />
+    <ProjectReference Include="..\Brainworks.UC.Data\Brainworks.UC.Data.csproj" />
+  </ItemGroup>
+
 </Project>

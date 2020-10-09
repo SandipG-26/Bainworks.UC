@@ -2,10 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Bainworks.UC.Persistance</AssemblyName>
+    <RootNamespace>Persistance</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Orc.DependencyGraph" Version="4.0.0" />
-  </ItemGroup>
 
 </Project>

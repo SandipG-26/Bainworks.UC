@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Bainworks.UC.API
+namespace Brainworks.UC.API
 {
     public class Program
     {

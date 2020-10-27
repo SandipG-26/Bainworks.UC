@@ -1,6 +1,6 @@
 using System;
 
-namespace Bainworks.UC.API
+namespace Brainworks.UC.API
 {
     public class WeatherForecast
     {

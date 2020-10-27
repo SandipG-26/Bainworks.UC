@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Brainworks.UC.Persistance;
+using Bainworks.UC.Service;
+using Brainworks.UC.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Bainworks.UC.API
+namespace Brainworks.UC.API
 {
     public class Startup
     {
@@ -25,6 +28,11 @@ namespace Bainworks.UC.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<UCcontext>();
+            services.AddTransient<IRepository<Customer>, Repository<Customer>>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,15 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brainworks.UC.Data", "Brain
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7430EECA-8E98-46F3-897C-6D9D2442E52F}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		.gitiattributes = .gitiattributes
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bainworks.UC.Persistance", "Bainworks.UC.Persistance\Bainworks.UC.Persistance.csproj", "{B82C7CC5-2561-4448-AF96-64BBBBB3033B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brainworks.UC.Persistance", "Bainworks.UC.Persistance\Brainworks.UC.Persistance.csproj", "{B82C7CC5-2561-4448-AF96-64BBBBB3033B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bainworks.UC.API", "Bainworks.UC.API\Bainworks.UC.API.csproj", "{0398B0E0-5BDB-4187-B055-9E7009E45E5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brainworks.UC.API", "Bainworks.UC.API\Brainworks.UC.API.csproj", "{0398B0E0-5BDB-4187-B055-9E7009E45E5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bainworks.UC.Service", "Bainworks.UC.Service\Bainworks.UC.Service.csproj", "{37204401-1025-4FF8-BA10-1005C289C37B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brainworks.UC.Services", "Bainworks.UC.Service\Brainworks.UC.Services.csproj", "{37204401-1025-4FF8-BA10-1005C289C37B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

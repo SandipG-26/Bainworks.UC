@@ -4,7 +4,7 @@ using System.Text;
 using Brainworks.UC.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bainworks.UC.Persistance
+namespace Brainworks.UC.Persistance
 {
     public class UCcontext:DbContext
     {

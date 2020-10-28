@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Brainworks.UC.Persistance;
-using Bainworks.UC.Service;
+using Brainworks.UC.Services;
 using Brainworks.UC.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,10 +28,14 @@ namespace Brainworks.UC.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<IServiceServices, ServiceServices>();
+            services.AddTransient<IAreaService, AreaService>();
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<UCcontext>();
             services.AddTransient<IRepository<Customer>, Repository<Customer>>();
+            services.AddTransient<IRepository<Service>, Repository<Service>>();
+            services.AddTransient<IRepository<Area>, Repository<Area>>();
 
         }
 

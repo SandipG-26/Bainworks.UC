@@ -5689,11 +5689,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sandip\\source\\repos\\Brainworks\\Bainworks.UC\\Brainworks.UC.Data\\Brainworks.UC.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Sandip\\source\\repos\\Brainworks\\Brainworks.UC\\Brainworks.UC.Data\\Brainworks.UC.Data.csproj",
       "projectName": "Brainworks.UC.Data",
-      "projectPath": "C:\\Users\\Sandip\\source\\repos\\Brainworks\\Bainworks.UC\\Brainworks.UC.Data\\Brainworks.UC.Data.csproj",
+      "projectPath": "C:\\Users\\Sandip\\source\\repos\\Brainworks\\Brainworks.UC\\Brainworks.UC.Data\\Brainworks.UC.Data.csproj",
       "packagesPath": "C:\\Users\\Sandip\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sandip\\source\\repos\\Brainworks\\Bainworks.UC\\Brainworks.UC.Data\\obj\\",
+      "outputPath": "C:\\Users\\Sandip\\source\\repos\\Brainworks\\Brainworks.UC\\Brainworks.UC.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Sandip\\AppData\\Roaming\\NuGet\\NuGet.Config",

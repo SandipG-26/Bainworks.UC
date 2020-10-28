@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Brainworks.UC.Data
 {
@@ -17,4 +15,4 @@ namespace Brainworks.UC.Data
         public List<Completed> completed { get; set; }
 
     }
-} 
+}

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Bainworks.UC.API.Controllers
+namespace Brainworks.UC.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

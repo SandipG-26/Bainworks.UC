@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Brainworks.UC.Data
 {
@@ -13,7 +11,7 @@ namespace Brainworks.UC.Data
         public string Landmark { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public string Pin { get; set; } 
+        public string Pin { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
         public int ServiceId { get; set; }
@@ -30,4 +28,3 @@ namespace Brainworks.UC.Data
 
     }
 }
- 

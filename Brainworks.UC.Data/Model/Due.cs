@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Linq;
-
-namespace Brainworks.UC.Data
+﻿namespace Brainworks.UC.Data
 {
     public class Due
     {
@@ -12,6 +7,6 @@ namespace Brainworks.UC.Data
         public int MaterialChargeId { get; set; }
         public int TotalId { get; set; }
         public Billing billing { get; set; }
-       
+
     }
 }

@@ -1,12 +1,12 @@
-﻿using Bainworks.UC.Service;
+﻿using Brainworks.UC.Services;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace Bainworks.UC.API
+namespace Brainworks.UC.API
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class CustomerController     
     {
         private readonly ICustomerService _customerService;
         public CustomerController(ICustomerService customerService) 

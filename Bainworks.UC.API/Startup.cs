@@ -28,14 +28,14 @@ namespace Brainworks.UC.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IServiceServices, ServiceServices>();
-            services.AddTransient<IAreaService, AreaService>();
+            //services.AddTransient<IServiceServices, ServiceServices>();
+            //services.AddTransient<IAreaService, AreaService>();
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<UCcontext>();
             services.AddTransient<IRepository<Customer>, Repository<Customer>>();
-            services.AddTransient<IRepository<Service>, Repository<Service>>();
-            services.AddTransient<IRepository<Area>, Repository<Area>>();
+            //services.AddTransient<IRepository<Service>, Repository<Service>>();
+            //services.AddTransient<IRepository<Area>, Repository<Area>>();
 
         }
 

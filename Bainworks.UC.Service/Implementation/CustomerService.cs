@@ -8,7 +8,7 @@ namespace Brainworks.UC.Services
     {
         //CRUD
         private readonly IUnitOfWork _unitOfWork;
-        public CustomerService(IUnitOfWork unitOfWork) 
+        public CustomerService(IUnitOfWork unitOfWork)
         {
             this._unitOfWork = unitOfWork;
         }
@@ -26,14 +26,20 @@ namespace Brainworks.UC.Services
         {
             return this._unitOfWork.CustomerRepository.FirstOrDefault(x => x.Email == Email);
         }
-        public int AddCustomers(Customer customer)
+        public Customer AddCustomers(Customer customer)
         {
             this._unitOfWork.CustomerRepository.Add(customer);
             this._unitOfWork.Save();
-            return customer.Id;
+            return customer;
 
             //context.customers.Add(customer);
             //context.SaveChanges();
+        }
+        public Customer UpdateCustomers(Customer customer)
+        {
+            this._unitOfWork.CustomerRepository.update(customer);
+            this._unitOfWork.Save();
+            return customer;
         }
     }
 }

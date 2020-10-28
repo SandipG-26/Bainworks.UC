@@ -14,7 +14,7 @@ namespace Brainworks.UC.Persistance
         T FirstOrDefault(Expression<Func<T, bool>> predicate);
         void Add(T entity);
         void remove(T entity);
-
+        void update(T entity);
     }
 }
  

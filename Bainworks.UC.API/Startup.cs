@@ -32,7 +32,7 @@ namespace Brainworks.UC.API
             //services.AddTransient<IAreaService, AreaService>();
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddSingleton<UCcontext>();
+            services.AddTransient<UCcontext>();
             services.AddTransient<IRepository<Customer>, Repository<Customer>>();
             //services.AddTransient<IRepository<Service>, Repository<Service>>();
             //services.AddTransient<IRepository<Area>, Repository<Area>>();

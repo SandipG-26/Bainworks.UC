@@ -43,9 +43,9 @@ namespace Brainworks.UC.Persistance
             this._context.Set<T>().Remove(entity);
         }
 
-        //public void update(T entity)
-        //{
-        //    this._context.Set<T>().Update(entity);
-        //}
+        public void update(T entity)
+        {
+            this._context.Set<T>().Update(entity);
+        }
     }
 }

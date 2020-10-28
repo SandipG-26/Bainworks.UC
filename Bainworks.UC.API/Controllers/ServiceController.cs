@@ -12,10 +12,15 @@ namespace Brainworks.UC.API
         {
             this._serviceServices = serviceServices;
         }
-        [HttpGet]
+        [HttpGet("getallservices")]
         public IActionResult GetAllServices()
         {
             return Ok(this._serviceServices.GetAllServices());
+        }
+        [HttpGet("getservicetype")]
+        public IActionResult GetAllServices(string servicetype)
+        {
+            return Ok(this._serviceServices.GetByServieType(servicetype));
         }
     }
 }

@@ -12,10 +12,15 @@ namespace Brainworks.UC.API
         {
             this._areaService = areaService;
         }
-        [HttpGet]
+        [HttpGet("getbyarea")]
         public IActionResult GetAllAreas()
         {
             return Ok(this._areaService.GetAllAreas());
+        }
+        [HttpGet("getbycity")]
+        public IActionResult GetByCity(string city)
+        {
+            return Ok(this._areaService.GetByCity(city));
         }
     }
 }

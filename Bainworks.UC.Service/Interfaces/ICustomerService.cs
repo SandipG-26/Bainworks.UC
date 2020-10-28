@@ -10,7 +10,7 @@ namespace Brainworks.UC.Services
         IEnumerable<Customer> GetAllCustomers();
         Customer GetById(int Id);
         Customer GetByEmail(string Email);
-        int AddCustomers(Customer customer);
-
+        Customer AddCustomers(Customer customer);
+        Customer UpdateCustomers(Customer customer);
     }
 }

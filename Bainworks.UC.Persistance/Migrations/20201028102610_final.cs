@@ -2,36 +2,39 @@
 
 namespace Brainworks.UC.Persistance.Migrations
 {
-    public partial class CreatedTableforsecondandthirdsprint : Migration
+    public partial class final : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "assign",
+                name: "about",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerId = table.Column<int>(nullable: false),
-                    City = table.Column<string>(type: "varchar(100 )", nullable: false),
-                    StatusId = table.Column<string>(type: "varchar(100 )", nullable: false),
-                    PinId = table.Column<int>(nullable: false),
-                    ServiceId = table.Column<int>(nullable: false)
+                    SatisfactoryCustomer = table.Column<string>(type: "varchar(500 )", nullable: false),
+                    Goal = table.Column<string>(type: "varchar(500 )", nullable: false),
+                    Ahievement = table.Column<string>(type: "varchar(500 )", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_assign", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_assign_customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "customers",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_assign_service_ServiceId",
-                        column: x => x.ServiceId,
-                        principalTable: "service",
-                        principalColumn: "Id");
+                    table.PrimaryKey("PK_about", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "area",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Pin = table.Column<string>(type: "varchar(6)", nullable: false),
+                    City = table.Column<string>(type: "varchar(50)", nullable: false),
+                    State = table.Column<string>(type: "varchar(50)", nullable: true),
+                    Subarea = table.Column<string>(type: "varchar(50)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_area", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -66,30 +69,156 @@ namespace Brainworks.UC.Persistance.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "feedback",
+                name: "firstPage",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Reference = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Key = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Value = table.Column<string>(type: "varchar(500 )", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_firstPage", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "service",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ServiceType = table.Column<string>(type: "varchar(100)", nullable: false),
+                    ServiceSubType = table.Column<string>(type: "varchar(100)", nullable: false),
+                    ServicePolicy = table.Column<string>(type: "varchar(50)", nullable: true),
+                    warranty = table.Column<string>(type: "varchar(10)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_service", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "due",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ServiceChargeId = table.Column<int>(nullable: false),
+                    MaterialChargeId = table.Column<int>(nullable: false),
+                    TotalId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_due", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_due_billing_TotalId",
+                        column: x => x.TotalId,
+                        principalTable: "billing",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "customers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "varchar(200)", nullable: false),
+                    LastName = table.Column<string>(type: "varchar(200)", nullable: false),
+                    Address = table.Column<string>(type: "varchar(500)", nullable: false),
+                    Landmark = table.Column<string>(type: "varchar(500)", nullable: false),
+                    City = table.Column<string>(type: "varchar(50)", nullable: false),
+                    State = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Pin = table.Column<string>(type: "varchar(6)", nullable: false),
+                    Mobile = table.Column<string>(type: "varchar(12)", nullable: false),
+                    Email = table.Column<string>(type: "varchar(200)", nullable: false),
+                    ServiceId = table.Column<int>(nullable: false),
+                    AreaId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_customers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_customers_area_AreaId",
+                        column: x => x.AreaId,
+                        principalTable: "area",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_customers_service_ServiceId",
+                        column: x => x.ServiceId,
+                        principalTable: "service",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "assign",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<int>(nullable: false),
-                    VendorId = table.Column<int>(nullable: false),
-                    Comment = table.Column<string>(type: "varchar(500)", nullable: false)
+                    City = table.Column<string>(type: "varchar(100 )", nullable: false),
+                    StatusId = table.Column<string>(type: "varchar(100 )", nullable: false),
+                    PinId = table.Column<int>(nullable: false),
+                    ServiceId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_feedback", x => x.Id);
+                    table.PrimaryKey("PK_assign", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_feedback_customers_CustomerId",
+                        name: "FK_assign_customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "customers",
-                        principalColumn: "ID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_feedback_vendor_VendorId",
-                        column: x => x.VendorId,
-                        principalTable: "vendor",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_assign_service_ServiceId",
+                        column: x => x.ServiceId,
+                        principalTable: "service",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "vendor",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "varchar(20)", nullable: false),
+                    ShopName = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Address = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Landmark = table.Column<string>(type: "varchar(50)", nullable: false),
+                    City = table.Column<string>(type: "varchar(50)", nullable: false),
+                    State = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Pin = table.Column<string>(type: "varchar(6)", nullable: false),
+                    Mobile = table.Column<string>(type: "varchar(12)", nullable: false),
+                    Email = table.Column<string>(type: "varchar(25)", nullable: false),
+                    ServiceId = table.Column<int>(nullable: false),
+                    AreaId = table.Column<int>(nullable: false),
+                    CustomerId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_vendor", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_vendor_area_AreaId",
+                        column: x => x.AreaId,
+                        principalTable: "area",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_vendor_customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "customers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_vendor_service_ServiceId",
+                        column: x => x.ServiceId,
+                        principalTable: "service",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -109,7 +238,7 @@ namespace Brainworks.UC.Persistance.Migrations
                         name: "FK_complaint_customers_CityId",
                         column: x => x.CityId,
                         principalTable: "customers",
-                        principalColumn: "ID");
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_complaint_assign_StatusId",
                         column: x => x.StatusId,
@@ -137,7 +266,7 @@ namespace Brainworks.UC.Persistance.Migrations
                         name: "FK_completed_customers_CustPinId",
                         column: x => x.CustPinId,
                         principalTable: "customers",
-                        principalColumn: "ID");
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_completed_service_ServiceId",
                         column: x => x.ServiceId,
@@ -169,7 +298,7 @@ namespace Brainworks.UC.Persistance.Migrations
                         name: "FK_newLead_customers_CustPinId",
                         column: x => x.CustPinId,
                         principalTable: "customers",
-                        principalColumn: "ID");
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_newLead_assign_assignId",
                         column: x => x.assignId,
@@ -195,7 +324,7 @@ namespace Brainworks.UC.Persistance.Migrations
                         name: "FK_replacement_customers_CityId",
                         column: x => x.CityId,
                         principalTable: "customers",
-                        principalColumn: "ID");
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_replacement_assign_StatusId",
                         column: x => x.StatusId,
@@ -204,23 +333,30 @@ namespace Brainworks.UC.Persistance.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "due",
+                name: "feedback",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ServiceChargeId = table.Column<int>(nullable: false),
-                    MaterialChargeId = table.Column<int>(nullable: false),
-                    TotalId = table.Column<int>(nullable: false)
+                    CustomerId = table.Column<int>(nullable: false),
+                    VendorId = table.Column<int>(nullable: false),
+                    Comment = table.Column<string>(type: "varchar(500)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_due", x => x.Id);
+                    table.PrimaryKey("PK_feedback", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_due_billing_TotalId",
-                        column: x => x.TotalId,
-                        principalTable: "billing",
-                        principalColumn: "Id");
+                        name: "FK_feedback_customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "customers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_feedback_vendor_VendorId",
+                        column: x => x.VendorId,
+                        principalTable: "vendor",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -259,6 +395,16 @@ namespace Brainworks.UC.Persistance.Migrations
                 column: "assignId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_customers_AreaId",
+                table: "customers",
+                column: "AreaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_customers_ServiceId",
+                table: "customers",
+                column: "ServiceId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_due_TotalId",
                 table: "due",
                 column: "TotalId");
@@ -292,10 +438,28 @@ namespace Brainworks.UC.Persistance.Migrations
                 name: "IX_replacement_StatusId",
                 table: "replacement",
                 column: "StatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_vendor_AreaId",
+                table: "vendor",
+                column: "AreaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_vendor_CustomerId",
+                table: "vendor",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_vendor_ServiceId",
+                table: "vendor",
+                column: "ServiceId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "about");
+
             migrationBuilder.DropTable(
                 name: "complaint");
 
@@ -312,6 +476,9 @@ namespace Brainworks.UC.Persistance.Migrations
                 name: "feedback");
 
             migrationBuilder.DropTable(
+                name: "firstPage");
+
+            migrationBuilder.DropTable(
                 name: "newLead");
 
             migrationBuilder.DropTable(
@@ -321,7 +488,19 @@ namespace Brainworks.UC.Persistance.Migrations
                 name: "billing");
 
             migrationBuilder.DropTable(
+                name: "vendor");
+
+            migrationBuilder.DropTable(
                 name: "assign");
+
+            migrationBuilder.DropTable(
+                name: "customers");
+
+            migrationBuilder.DropTable(
+                name: "area");
+
+            migrationBuilder.DropTable(
+                name: "service");
         }
     }
 }

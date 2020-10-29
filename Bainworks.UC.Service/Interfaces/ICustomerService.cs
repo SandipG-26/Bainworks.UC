@@ -12,5 +12,7 @@ namespace Brainworks.UC.Services
         Customer GetByEmail(string Email);
         Customer AddCustomers(Customer customer);
         Customer UpdateCustomers(Customer customer);
+        bool DeleteCustomers(int customerId);
+
     }
 }

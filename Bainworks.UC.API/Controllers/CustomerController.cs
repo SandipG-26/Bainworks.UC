@@ -33,5 +33,10 @@ namespace Brainworks.UC.API
         {
             return Ok(this._customerService.UpdateCustomers(customer));
         }
+        [HttpDelete("deletecustomer/{userId}")]
+        public IActionResult DeleteCustomers(int customerId)
+        {
+            return Ok(this._customerService.DeleteCustomers(customerId));
+        }
     }
 }

@@ -41,5 +41,17 @@ namespace Brainworks.UC.Services
             this._unitOfWork.Save();
             return customer;
         }
+        public bool DeleteCustomers(int customerId)
+        {
+            Customer customer = this._unitOfWork.CustomerRepository.GetById(customerId);
+
+            if (customer != null)
+            {
+                this._unitOfWork.CustomerRepository.remove(customer);
+                this._unitOfWork.Save();
+                return true;
+            }
+            return false;
+        }
     }
 }

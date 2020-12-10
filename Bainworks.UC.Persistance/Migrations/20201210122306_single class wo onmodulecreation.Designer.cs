@@ -4,14 +4,16 @@ using Brainworks.UC.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Brainworks.UC.Persistance.Migrations
 {
     [DbContext(typeof(UCcontext))]
-    partial class UCcontextModelSnapshot : ModelSnapshot
+    [Migration("20201210122306_single class wo onmodulecreation")]
+    partial class singleclasswoonmodulecreation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,15 +30,15 @@ namespace Brainworks.UC.Persistance.Migrations
 
                     b.Property<string>("Ahievement")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(500 )");
 
                     b.Property<string>("Goal")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(500 )");
 
                     b.Property<string>("SatisfactoryCustomer")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(500 )");
 
                     b.HasKey("Id");
 
@@ -52,19 +54,17 @@ namespace Brainworks.UC.Persistance.Migrations
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Pin")
                         .IsRequired()
                         .HasColumnType("varchar(6)");
 
                     b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Subarea")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");
 
@@ -80,7 +80,7 @@ namespace Brainworks.UC.Persistance.Migrations
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(100 )");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
@@ -91,8 +91,9 @@ namespace Brainworks.UC.Persistance.Migrations
                     b.Property<int>("ServiceId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
+                    b.Property<string>("StatusId")
+                        .IsRequired()
+                        .HasColumnType("varchar(100 )");
 
                     b.HasKey("Id");
 
@@ -178,7 +179,7 @@ namespace Brainworks.UC.Persistance.Migrations
                     b.Property<int>("StatusId")
                         .HasColumnType("int");
 
-                    b.Property<int>("assignId")
+                    b.Property<int?>("assignId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -201,7 +202,7 @@ namespace Brainworks.UC.Persistance.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -225,30 +226,30 @@ namespace Brainworks.UC.Persistance.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(500)");
 
                     b.Property<int>("AreaId")
                         .HasColumnType("int");
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("Landmark")
                         .IsRequired()
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("varchar(500)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("Mobile")
                         .IsRequired()
@@ -305,7 +306,8 @@ namespace Brainworks.UC.Persistance.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(500)");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
@@ -331,15 +333,15 @@ namespace Brainworks.UC.Persistance.Migrations
 
                     b.Property<string>("Key")
                         .IsRequired()
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Reference")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Value")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(500 )");
 
                     b.HasKey("Id");
 
@@ -354,15 +356,13 @@ namespace Brainworks.UC.Persistance.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CityId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CustPinId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CustomerId")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)");
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("assignId")
                         .HasColumnType("int");
@@ -386,9 +386,8 @@ namespace Brainworks.UC.Persistance.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CustomerId")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)");
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
 
                     b.Property<int>("StatusId")
                         .HasColumnType("int");
@@ -410,7 +409,6 @@ namespace Brainworks.UC.Persistance.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ServicePolicy")
-                        .IsRequired()
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("ServiceSubType")
@@ -419,10 +417,9 @@ namespace Brainworks.UC.Persistance.Migrations
 
                     b.Property<string>("ServiceType")
                         .IsRequired()
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("warranty")
-                        .IsRequired()
                         .HasColumnType("varchar(10)");
 
                     b.HasKey("Id");
@@ -453,7 +450,7 @@ namespace Brainworks.UC.Persistance.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(25)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -476,7 +473,7 @@ namespace Brainworks.UC.Persistance.Migrations
 
                     b.Property<string>("ShopName")
                         .IsRequired()
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("State")
                         .IsRequired()
@@ -539,9 +536,7 @@ namespace Brainworks.UC.Persistance.Migrations
 
                     b.HasOne("Brainworks.UC.Data.Assign", "assign")
                         .WithMany("comleted")
-                        .HasForeignKey("assignId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("assignId");
                 });
 
             modelBuilder.Entity("Brainworks.UC.Data.Customer", b =>

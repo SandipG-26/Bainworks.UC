@@ -4,14 +4,16 @@ using Brainworks.UC.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Brainworks.UC.Persistance.Migrations
 {
     [DbContext(typeof(UCcontext))]
-    partial class UCcontextModelSnapshot : ModelSnapshot
+    [Migration("20201210133432_per class column required created and onmodelcreated removed")]
+    partial class perclasscolumnrequiredcreatedandonmodelcreatedremoved
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -11,7 +11,6 @@ namespace Brainworks.UC.Persistance
         Repository<Vendor> VendorRepository { get; }
         Repository<Area> AreaRepository { get; }
         Repository<Service> ServiceRepository { get; }
-        int Save();
-         
+        int Save { get; }
     }
 }

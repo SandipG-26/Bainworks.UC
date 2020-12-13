@@ -24,6 +24,6 @@ namespace Brainworks.UC.Data
         [Required]
         public decimal GST { get; set; }
 
-        public List<Due> due { get; set; }
+        public virtual List<Due> due { get; set; }
     }
 }

@@ -29,9 +29,9 @@ namespace Brainworks.UC.Data
 
         [Required]
         public virtual Customer customer { get; set; }
-        public List<Replacement> replacement { get; set; }
-        public List<NewLead> newlead { get; set; }
-        public List<Complaint> complaint { get; set; }
-        public List<Completed> comleted { get; set; }
+        public virtual List<Replacement> replacement { get; set; }
+        public virtual List<NewLead> newlead { get; set; }
+        public virtual List<Complaint> complaint { get; set; }
+        public virtual List<Completed> comleted { get; set; }
     }
 }

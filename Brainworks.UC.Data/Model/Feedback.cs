@@ -1,12 +1,24 @@
-﻿namespace Brainworks.UC.Data
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Brainworks.UC.Data
 {
     public class Feedback
     {
         public int Id { get; set; }
+
+        [Required]
         public int CustomerId { get; set; }
-        public Customer customer { get; set; }
+
+        [Required]
+        public virtual Customer customer { get; set; }
+
+        [Required]
         public int VendorId { get; set; }
-        public Vendor vendor { get; set; }
+
+        [Required]
+        public virtual Vendor vendor { get; set; }
+
+        [Required]
         public string Comment { get; set; }
     }
 }

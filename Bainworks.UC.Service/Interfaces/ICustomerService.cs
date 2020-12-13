@@ -1,13 +1,12 @@
 ﻿using Brainworks.UC.Data;
-using System;
+using Brainworks.UC.ViewModel;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Brainworks.UC.Services
 {
     public interface ICustomerService
     {
-        IEnumerable<Customer> GetAllCustomers();
+        IEnumerable<CustomerViewModel> GetAllCustomers();
         Customer GetById(int Id);
         Customer GetByEmail(string Email);
         Customer AddCustomers(Customer customer);

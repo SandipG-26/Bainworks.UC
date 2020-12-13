@@ -1,6 +1,8 @@
 ﻿using Brainworks.UC.Data;
 using System.Collections.Generic;
 using Brainworks.UC.Persistance;
+using Brainworks.UC.ViewModel;
+using AutoMapper;
 
 namespace Brainworks.UC.Services
 {
@@ -8,14 +10,17 @@ namespace Brainworks.UC.Services
     {
         //CRUD
         private readonly IUnitOfWork _unitOfWork;
-        public CustomerService(IUnitOfWork unitOfWork)
+        private readonly IMapper _mapper;
+        public CustomerService(IMapper mapper, IUnitOfWork unitOfWork)
         {
-            this._unitOfWork = unitOfWork;
+           this._mapper = mapper;
+           this._unitOfWork = unitOfWork;
         }
-        public IEnumerable<Customer> GetAllCustomers()
+        public IEnumerable<CustomerViewModel> GetAllCustomers()
         {
-            return this._unitOfWork.CustomerRepository.GetAll();
-
+            var customerlist =  this._unitOfWork.CustomerRepository.GetAll();
+            var customerViewModellist = _mapper.Map<IEnumerable<CustomerViewModel>>(customerlist);
+            return customerViewModellist;
         }
         public Customer GetById(int Id)
         {
@@ -29,7 +34,7 @@ namespace Brainworks.UC.Services
         public Customer AddCustomers(Customer customer)
         {
             this._unitOfWork.CustomerRepository.Add(customer);
-            this._unitOfWork.Save();
+            this._unitOfWork.Save;
             return customer;
 
             //context.customers.Add(customer);
@@ -38,7 +43,7 @@ namespace Brainworks.UC.Services
         public Customer UpdateCustomers(Customer customer)
         {
             this._unitOfWork.CustomerRepository.update(customer);
-            this._unitOfWork.Save();
+            this._unitOfWork.Save;
             return customer;
         }
         public bool DeleteCustomers(int customerId)
@@ -48,7 +53,7 @@ namespace Brainworks.UC.Services
             if (customer != null)
             {
                 this._unitOfWork.CustomerRepository.remove(customer);
-                this._unitOfWork.Save();
+                this._unitOfWork.Save;
                 return true;
             }
             return false;

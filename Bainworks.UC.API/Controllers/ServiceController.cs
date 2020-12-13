@@ -1,4 +1,5 @@
 ﻿using Brainworks.UC.Services;
+using Brainworks.UC.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Brainworks.UC.API
@@ -21,6 +22,11 @@ namespace Brainworks.UC.API
         public IActionResult GetAllServices(string servicetype)
         {
             return Ok(this._serviceServices.GetByServieType(servicetype));
+        }
+        [HttpPost("add")]
+        public IActionResult AddService(ServiceViewModel service)
+        {
+            return Ok(this._serviceServices.AddService(service));
         }
     }
 }

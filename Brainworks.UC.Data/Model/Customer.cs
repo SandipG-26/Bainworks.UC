@@ -57,12 +57,12 @@ namespace Brainworks.UC.Data
         public virtual Area area { get; set; }
 
 
-        public List<Vendor> vendor { get; set; }
-        public List<Assign> assign { get; set; }
-        public List<Completed> completed { get; set; }
-        public List<NewLead> newLead { get; set; }
-        public List<Replacement> replacement { get; set; }
-        public List<Complaint> complaint { get; set; }
+        public virtual List<Vendor> vendor { get; set; }
+        public virtual List<Assign> assign { get; set; }
+        public virtual List<Completed> completed { get; set; }
+        public virtual List<NewLead> newLead { get; set; }
+        public virtual List<Replacement> replacement { get; set; }
+        public virtual List<Complaint> complaint { get; set; }
 
     }
 }

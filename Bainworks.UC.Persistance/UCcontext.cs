@@ -27,8 +27,8 @@ namespace Brainworks.UC.Persistance
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionstring = "Server=DESKTOP-6N1BUO9;Initial Catalog=UCData;Integrated Security=True";
-            optionsBuilder.UseSqlServer(connectionstring);
+            string connectionstring = "Server=DESKTOP-6N1BUO9;Initial Catalog=UCData;Integrated Security=True;MultipleActiveResultSets=true";
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionstring);
         }
         //data modeling 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -24,10 +24,10 @@ namespace Brainworks.UC.Data
         [Required]
         public string warranty { get; set; }
 
-        public List<Customer> customer { get; set; }
-        public List<Vendor> vendor { get; set; }
-        public List<Assign> assign { get; set; }
-        public List<Completed> completed { get; set; }
+        public virtual List<Customer> customer { get; set; }
+        public virtual List<Vendor> vendor { get; set; }
+        public virtual List<Assign> assign { get; set; }
+        public virtual List<Completed> completed { get; set; }
 
     }
 }

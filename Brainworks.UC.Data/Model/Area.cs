@@ -24,8 +24,8 @@ namespace Brainworks.UC.Data
         [Required]
         public string Subarea { get; set; }
 
-        public List<Vendor> vendor { get; set; }
-        public List<Customer> customer { get; set; }
+        public virtual List<Vendor> vendor { get; set; }
+        public virtual List<Customer> customer { get; set; }
 
     }
 }

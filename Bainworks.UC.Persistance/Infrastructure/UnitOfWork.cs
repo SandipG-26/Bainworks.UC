@@ -21,10 +21,7 @@ namespace Brainworks.UC.Persistance
             this.ServiceRepository = new Repository<Service>(this._context);
 
         }
-        public int Save()
-        {
-            return this._context.SaveChanges();
-        }
+        public int Save => this._context.SaveChanges();
         public void Dispose()
         {
             this._context.Dispose();    

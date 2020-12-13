@@ -29,7 +29,7 @@ namespace Brainworks.UC.Services
         public int AddAreas(Area area)
         {
             this._unitOfWork.AreaRepository.Add(area);
-            this._unitOfWork.Save();
+            this._unitOfWork.Save;
             return area.Id;
 
             //context.customers.Add(customer);
